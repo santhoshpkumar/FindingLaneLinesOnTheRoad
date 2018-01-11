@@ -1,37 +1,49 @@
-## Welcome to GitHub Pages
+**Finding Lane Lines on the Road**
 
-You can use the [editor on GitHub](https://github.com/santhoshpkumar/FindingLaneLinesOnTheRoad/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+[Link to website](https://santhoshpkumar.github.io/FindingLaneLinesOnTheRoad/)
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## Writeup Template
 
-### Markdown
+### You can use this file as a template for your writeup if you want to submit it as a markdown file. But feel free to use some other method and submit a pdf if you prefer.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+---
 
-```markdown
-Syntax highlighted code block
+**Finding Lane Lines on the Road**
 
-# Header 1
-## Header 2
-### Header 3
+The goals / steps of this project are the following:
+* Make a pipeline that finds lane lines on the road
+* Reflect on your work in a written report
 
-- Bulleted
-- List
 
-1. Numbered
-2. List
+[//]: # (Image References)
 
-**Bold** and _Italic_ and `Code` text
+[image1]: ./examples/grayscale.jpg "Grayscale"
 
-[Link](url) and ![Image](src)
-```
+---
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+### Reflection
 
-### Jekyll Themes
+### 1. Describe your pipeline. As part of the description, explain how you modified the draw_lines() function.
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/santhoshpkumar/FindingLaneLinesOnTheRoad/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+My pipeline consisted of 5 steps. First, I converted the images to grayscale, then I ....
 
-### Support or Contact
+In order to draw a single line on the left and right lanes, I modified the draw_lines() function by ...
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+If you'd like to include images to show how the pipeline works, here is how to include an image:
+
+![alt text][image1]
+
+
+### 2. Identify potential shortcomings with your current pipeline
+
+
+One potential shortcoming would be what would happen when ...
+
+Another shortcoming could be ...
+
+
+### 3. Suggest possible improvements to your pipeline
+
+A possible improvement would be to ...
+
+Another potential improvement could be to ...
