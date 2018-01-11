@@ -1,22 +1,22 @@
 **Finding Lane Lines on the Road**
 
-### Pipeline
+# Pipeline
 
 The big picture of this project is to create a pipline for a single image and apply the same for the entire stream of frames. The pipeline consists of following steps
 
-# Step 1: Isolate yellow and white from image 
+### Step 1: Isolate yellow and white from image 
 mask = color_selection(image)
-# Step 2: Convert image to grayscale for easier manipulation
+### Step 2: Convert image to grayscale for easier manipulation
 gray = grayscale(mask)
-# Step 3: Apply Gaussian Blur to smoothen edges
+### Step 3: Apply Gaussian Blur to smoothen edges
 blur = gaussian_blur(gray, kernel_size)
-# Step 4: Apply Canny Edge Detection on smoothed gray image
+### Step 4: Apply Canny Edge Detection on smoothed gray image
 edges = canny(blur, low_threshold, high_threshold)
-# Step 5: Trace Region Of Interest and discard all other lines
+### Step 5: Trace Region Of Interest and discard all other lines
 roi = region_of_interest(edges, vertices)
-# Step 6: Perform a Hough Transform to find lanes within our region of interest and trace them in red
+### Step 6: Perform a Hough Transform to find lanes within our region of interest and trace them in red
 lines = hough_lines(roi, rho, theta, threshold, min_line_length, max_line_gap)
-# Step 7: Superimpose the lanes found on to the original image
+### Step 7: Superimpose the lanes found on to the original image
 result = weighted_img(lines, image)
 
 
@@ -25,7 +25,7 @@ result = weighted_img(lines, image)
 
 ---
 
-### Reflection
+# 1. Reflection
 
 The draw_lines() function has been modified to draw two single lines one correspondign to the left lane of the raod and the other for the right lane.
 
@@ -44,7 +44,7 @@ If you'd like to include images to show how the pipeline works, here is how to i
 ![alt text][image1]
 
 
-### 2. Potential shortcomings with the pipeline
+## 2. Potential shortcomings with the pipeline
 
 
 Current pipeline considers each frame to be independent and a slight jitter can be obsered on the final video, as the lanes drawn on each frame dont overlap. If each frame can use input from the previous frame to extrapolate and draw lines can smothen the drawn lane and also increase the accurary of the lane finding. 
@@ -55,7 +55,7 @@ The pipeline assums that hte region of intereset is same accross all frames, thi
 Example fo the car having to take a sharp turn or a elevation change on the road 
 
 
-### 3. Possible improvements to the pipeline
+## 3. Possible improvements to the pipeline
 
 A possible improvement would be to use HSL and HSV and other color mapping to find and mask the color selection. Currently solution is bound to fail when the color of the white and yellow are at extreme shade boundaries. Also
 
