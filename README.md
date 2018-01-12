@@ -119,8 +119,15 @@ Current pipeline assumes that the car is in the centre of the lane, the current 
 The pipeline assumes that the region of interest is same across all frames, this might not be true and a true pipeline might get additional sensor inputs as to compass or the orientation and elevation can help get a better region of interest for lane finding.
 Example fo the car having to take a sharp turn or a elevation change on the road
 
+[challenge_90]: ./test_images_output/challenge_frame_90_final.jpg "Challenge gone wrong"
+
+![challenge_frame_90][challenge_90]
+
 The color processing need to be improved or tweeked as shadows and near white causes the lines to be not detected.
 
+[challenge_110]: ./test_images_output/challenge_frame_110_final.jpg "Challenge gone wrong again"
+
+![challenge_frame_110][challenge_110]
 
 
 ## 3. Possible improvements to the pipeline
