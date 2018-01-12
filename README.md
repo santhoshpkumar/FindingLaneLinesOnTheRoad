@@ -82,7 +82,7 @@ The draw_lines() function has been modified to draw two single lines one corresp
 
 hough_lines() function returns a collection of lines. Here is the output consiting of detected hough lanes draw on the canvas.
 
-[solidYellowCurve_lines]: ./test_images_output/solidYellowCurve_lines.jpg "Hough Lines"
+[solidYellowCurve_lines]: ./test_images_output/solidYelloCurve_lines.jpg "Hough Lines"
 
 ![Hough Lines][solidYellowCurve_lines]
 
@@ -92,11 +92,11 @@ separate_lines() does this grouping using the slope on the input list of hough l
 
 Two images below represetn the seprated lanes
 
-[solidYellowCurve_left]: ./test_images_output/solidYellowCurve_left.jpg "Left Lines"
+[solidYellowCurve_left]: ./test_images_output/solidYelloCurve_left.jpg "Left Lines"
 
 ![Left Lines][solidYellowCurve_left]
 
-[solidYellowCurve_right]: ./test_images_output/solidYellowCurve_right.jpg "Right Lines"
+[solidYellowCurve_right]: ./test_images_output/solidYelloCurve_right.jpg "Right Lines"
 
 ![Right Lines][solidYellowCurve_right]
 
