@@ -5,6 +5,16 @@
 The big picture of this project is to create a pipeline for a single image and apply the same for the entire stream of frames.
 Lets walkthrough the list of steps applied on a single image frame. The pipeline consists of following steps
 
+1. Isolate yellow and white from image
+2. Convert image to grayscale for easier manipulation
+3. Apply Gaussian Blur to smoothen edges
+4. Apply Canny Edge Detection on smoothed gray image
+5. Trace Region Of Interest and discard all other lines
+6. Perform a Hough Transform to find lanes within our region of interest and trace them in red
+7. Superimpose the lanes found on to the original image
+
+Here is the input image 
+
 [solidYellowCurve_input]: ./test_images/solidYellowCurve.jpg "Input Image"
 
 ![solidYellowCurve][solidYellowCurve_input]
