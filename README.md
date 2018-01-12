@@ -5,35 +5,39 @@
 The big picture of this project is to create a pipeline for a single image and apply the same for the entire stream of frames.
 Lets walkthrough the list of steps applied on a single image frame. The pipeline consists of following steps
 
-[solidYellowCurve]: ./test_images_output/solidYellowCurve.jpg "Input Image"
+[solidYellowCurve_input]: ./test_images_output/solidYellowCurve.jpg "Input Image"
+![solidYellowCurve][solidYellowCurve_input]
 
 ### Step 1: Isolate yellow and white from image
 mask = color_selection(image)
-![solidYellowCurve]: ./test_images_output/solidYellowCurve_mask.jpg "Color Selection"
+[solidYellowCurve_mask]: ./test_images_output/solidYellowCurve_mask.jpg "Color Selection"
+![mask][solidYellowCurve_mask]
 
 ### Step 2: Convert image to grayscale for easier manipulation
 gray = grayscale(mask)
-![solidYellowCurve]: ./test_images_output/solidYellowCurve_gray.jpg "Grayscale"
+[solidYellowCurve_gray]: ./test_images_output/solidYellowCurve_gray.jpg "Grayscale"
+![gray][solidYellowCurve_gray]
 
 ### Step 3: Apply Gaussian Blur to smoothen edges
 blur = gaussian_blur(gray, kernel_size)
-![solidYellowCurve]: ./test_images_output/solidYellowCurve_blur.jpg "Gaussian Blur"
+[solidYellowCurve_blur]: ./test_images_output/solidYellowCurve_blur.jpg "Gaussian Blur"
+![blur][solidYellowCurve_blur]
 
 ### Step 4: Apply Canny Edge Detection on smoothed gray image
 edges = canny(blur, low_threshold, high_threshold)
-![solidYellowCurve]: ./test_images_output/solidYellowCurve_edges.jpg "Canny Edge Detection"
+[solidYellowCurve_edges]: ./test_images_output/solidYellowCurve_edges.jpg "Canny Edge Detection"
 
 ### Step 5: Trace Region Of Interest and discard all other lines
 roi = region_of_interest(edges, vertices)
-![solidYellowCurve]: ./test_images_output/solidYellowCurve_roi.jpg "Region Of Interest"
+[solidYellowCurve_roi]: ./test_images_output/solidYellowCurve_roi.jpg "Region Of Interest"
 
 ### Step 6: Perform a Hough Transform to find lanes within our region of interest and trace them in red
 lines = hough_lines(roi, rho, theta, threshold, min_line_length, max_line_gap)
-![solidYellowCurve]: ./test_images_output/solidYellowCurve_hough.jpg "Hough Transform and Extrapolated Lines"
+[solidYellowCurve_lines]: ./test_images_output/solidYellowCurve_hough.jpg "Hough Transform and Extrapolated Lines"
 
 ### Step 7: Superimpose the lanes found on to the original image
 result = weighted_img(lines, image)
-![solidYellowCurve]: ./test_images_output/solidYellowCurve_mask.jpg "Merged Output"
+[solidYellowCurve_result]: ./test_images_output/solidYellowCurve_mask.jpg "Merged Output"
 
 ---
 
