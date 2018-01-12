@@ -57,9 +57,9 @@ roi = region_of_interest(edges, vertices)
 ### Step 6: Perform a Hough Transform to find lanes within our region of interest and trace them in red
 lines = hough_lines(roi, rho, theta, threshold, min_line_length, max_line_gap)
 
-[solidYellowCurve_lines]: ./test_images_output/solidYellowCurve_hough.jpg "Hough Transform and Extrapolated Lines"
+[solidYellowCurve_hough]: ./test_images_output/solidYellowCurve_hough.jpg "Hough Transform and Extrapolated Lines"
 
-![lines][solidYellowCurve_lines]
+![lines][solidYellowCurve_hough]
 
 ### Step 7: Superimpose the lanes found on to the original image
 result = weighted_img(lines, image)
@@ -90,7 +90,7 @@ These lines needed to be grouped as belonging to left and right. The grouping is
 
 separate_lines() does this grouping using the slope on the input list of hough lines. The results are two collection of lanes, right and left.
 
-Two imiages below represetn the seprated lanes
+Two images below represetn the seprated lanes
 
 [solidYellowCurve_left]: ./test_images_output/solidYellowCurve_left.jpg "Left Lines"
 
