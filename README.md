@@ -5,35 +5,74 @@
 The big picture of this project is to create a pipeline for a single image and apply the same for the entire stream of frames.
 Lets walkthrough the list of steps applied on a single image frame. The pipeline consists of following steps
 
-[solidYellowCurve]: ./test_images_output/solidYellowCurve.jpg "Input Image"
+1. Isolate yellow and white from image
+2. Convert image to grayscale for easier manipulation
+3. Apply Gaussian Blur to smoothen edges
+4. Apply Canny Edge Detection on smoothed gray image
+5. Trace Region Of Interest and discard all other lines
+6. Perform a Hough Transform to find lanes within our region of interest and trace them in red
+7. Superimpose the lanes found on to the original image
+
+Here is the input image
+
+[solidYellowCurve_input]: ./test_images/solidYellowCurve.jpg "Input Image"
+
+![solidYellowCurve][solidYellowCurve_input]
 
 ### Step 1: Isolate yellow and white from image
 mask = color_selection(image)
-[solidYellowCurve]: ./test_images_output/solidYellowCurve_mask.jpg "Color Selection"
+
+[solidYellowCurve_mask]: ./test_images_output/solidYellowCurve_mask.jpg "Color Selection"
+
+![mask][solidYellowCurve_mask]
 
 ### Step 2: Convert image to grayscale for easier manipulation
 gray = grayscale(mask)
-[solidYellowCurve]: ./test_images_output/solidYellowCurve_gray.jpg "Grayscale"
+
+[solidYellowCurve_gray]: ./test_images_output/solidYellowCurve_gray.jpg "Grayscale"
+
+![gray][solidYellowCurve_gray]
 
 ### Step 3: Apply Gaussian Blur to smoothen edges
 blur = gaussian_blur(gray, kernel_size)
-[solidYellowCurve]: ./test_images_output/solidYellowCurve_blur.jpg "Gaussian Blur"
+
+[solidYellowCurve_blur]: ./test_images_output/solidYellowCurve_blur.jpg "Gaussian Blur"
+
+![blur][solidYellowCurve_blur]
 
 ### Step 4: Apply Canny Edge Detection on smoothed gray image
 edges = canny(blur, low_threshold, high_threshold)
-[solidYellowCurve]: ./test_images_output/solidYellowCurve_edges.jpg "Canny Edge Detection"
+
+[solidYellowCurve_edges]: ./test_images_output/solidYellowCurve_edges.jpg "Canny Edge Detection"
+
+![edges][solidYellowCurve_edges]
 
 ### Step 5: Trace Region Of Interest and discard all other lines
 roi = region_of_interest(edges, vertices)
-[solidYellowCurve]: ./test_images_output/solidYellowCurve_roi.jpg "Region Of Interest"
+
+[solidYellowCurve_roi]: ./test_images_output/solidYellowCurve_roi.jpg "Region Of Interest"
+
+![roi][solidYellowCurve_roi]
 
 ### Step 6: Perform a Hough Transform to find lanes within our region of interest and trace them in red
 lines = hough_lines(roi, rho, theta, threshold, min_line_length, max_line_gap)
-[solidYellowCurve]: ./test_images_output/solidYellowCurve_hough.jpg "Hough Transform and Extrapolated Lines"
+
+[solidYellowCurve_lines]: ./test_images_output/solidYellowCurve_hough.jpg "Hough Transform and Extrapolated Lines"
+
+![lines][solidYellowCurve_lines]
 
 ### Step 7: Superimpose the lanes found on to the original image
 result = weighted_img(lines, image)
-[solidYellowCurve]: ./test_images_output/solidYellowCurve_mask.jpg "Merged Output"
+
+[solidYellowCurve_result]: ./test_images_output/solidYellowCurve_final.jpg "Merged Output"
+
+![result][solidYellowCurve_result]
+
+[solidYellowCurve_gif]: ./test_images_output/solidYellowCurve.gif "Video Output"
+
+Here is the result when the pipeline is applied to each of the frame in the video.
+
+![output][solidYellowCurve_gif]
 
 ---
 
@@ -50,6 +89,12 @@ Next task is to find a linear line which would pass all the lines. cv2.polyfit f
 average_lines() does this task for the 2 collections left and right lines found from separate_lines function call.
 
 Finally extrapolate_lines does the task of calculating and drawing the two left and right lanes. The inputs to the function are slope and intercept along with the two co-ordinates that indicate the start and end for the lane. Start and End are the co-ordinates of our roi region which depicts the upper and lower boundary up to which we want to extrapolate the averaged lines.
+
+[image1]: ./test_images/challenge_089.jpg "Grayscale"
+
+If you'd like to include images to show how the pipeline works, here is how to include an image:
+
+![alt text][image1]
 
 # 2. Potential shortcomings with the pipeline
 
