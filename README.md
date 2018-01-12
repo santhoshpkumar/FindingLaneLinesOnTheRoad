@@ -54,7 +54,7 @@ lines = hough_lines(roi, rho, theta, threshold, min_line_length, max_line_gap)
 ### Step 7: Superimpose the lanes found on to the original image
 result = weighted_img(lines, image)
 
-[solidYellowCurve_result]: ./test_images_output/solidYellowCurve_mask.jpg "Merged Output"
+[solidYellowCurve_result]: ./test_images_output/solidYellowCurve_final.jpg "Merged Output"
 
 ![result][solidYellowCurve_result]
 
