@@ -9,31 +9,31 @@ Lets walkthrough the list of steps applied on a single image frame. The pipeline
 
 ### Step 1: Isolate yellow and white from image
 mask = color_selection(image)
-[solidYellowCurve]: ./test_images_output/solidYellowCurve_mask.jpg "Color Selection"
+![solidYellowCurve]: ./test_images_output/solidYellowCurve_mask.jpg "Color Selection"
 
 ### Step 2: Convert image to grayscale for easier manipulation
 gray = grayscale(mask)
-[solidYellowCurve]: ./test_images_output/solidYellowCurve_gray.jpg "Grayscale"
+![solidYellowCurve]: ./test_images_output/solidYellowCurve_gray.jpg "Grayscale"
 
 ### Step 3: Apply Gaussian Blur to smoothen edges
 blur = gaussian_blur(gray, kernel_size)
-[solidYellowCurve]: ./test_images_output/solidYellowCurve_blur.jpg "Gaussian Blur"
+![solidYellowCurve]: ./test_images_output/solidYellowCurve_blur.jpg "Gaussian Blur"
 
 ### Step 4: Apply Canny Edge Detection on smoothed gray image
 edges = canny(blur, low_threshold, high_threshold)
-[solidYellowCurve]: ./test_images_output/solidYellowCurve_edges.jpg "Canny Edge Detection"
+![solidYellowCurve]: ./test_images_output/solidYellowCurve_edges.jpg "Canny Edge Detection"
 
 ### Step 5: Trace Region Of Interest and discard all other lines
 roi = region_of_interest(edges, vertices)
-[solidYellowCurve]: ./test_images_output/solidYellowCurve_roi.jpg "Region Of Interest"
+![solidYellowCurve]: ./test_images_output/solidYellowCurve_roi.jpg "Region Of Interest"
 
 ### Step 6: Perform a Hough Transform to find lanes within our region of interest and trace them in red
 lines = hough_lines(roi, rho, theta, threshold, min_line_length, max_line_gap)
-[solidYellowCurve]: ./test_images_output/solidYellowCurve_hough.jpg "Hough Transform and Extrapolated Lines"
+![solidYellowCurve]: ./test_images_output/solidYellowCurve_hough.jpg "Hough Transform and Extrapolated Lines"
 
 ### Step 7: Superimpose the lanes found on to the original image
 result = weighted_img(lines, image)
-[solidYellowCurve]: ./test_images_output/solidYellowCurve_mask.jpg "Merged Output"
+![solidYellowCurve]: ./test_images_output/solidYellowCurve_mask.jpg "Merged Output"
 
 ---
 
