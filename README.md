@@ -80,9 +80,26 @@ Here is the result when the pipeline is applied to each of the frame in the vide
 
 The draw_lines() function has been modified to draw two single lines one corresponding to the left lane of the road and the other for the right lane.
 
-hough_lines() function returns a collection of lines. These lines needed to be grouped as belonging to left and right. The grouping is done based on the slope of the line, positive slope indicates they are slanting towards left, possible indicating a left line and negative slope indicate that the line is slanted towards right and possible left lane.
+hough_lines() function returns a collection of lines. Here is the output consiting of detected hough lanes draw on the canvas.
+
+[solidYellowCurve_lines]: ./test_images_output/solidYellowCurve_lines.jpg "Hough Lines"
+
+![Hough Lines][solidYellowCurve_lines]
+
+These lines needed to be grouped as belonging to left and right. The grouping is done based on the slope of the line, positive slope indicates they are slanting towards left, possible indicating a left line and negative slope indicate that the line is slanted towards right and possible left lane.
 
 separate_lines() does this grouping using the slope on the input list of hough lines. The results are two collection of lanes, right and left.
+
+Two imiages below represetn the seprated lanes
+
+[solidYellowCurve_left]: ./test_images_output/solidYellowCurve_left.jpg "Left Lines"
+
+![Left Lines][solidYellowCurve_left]
+
+[solidYellowCurve_right]: ./test_images_output/solidYellowCurve_right.jpg "Right Lines"
+
+![Right Lines][solidYellowCurve_right]
+
 
 Next task is to find a linear line which would pass all the lines. cv2.polyfit function does this calculation for us and returns the final slope and intercept of the line that would possible pass thought the given set of lane points.
 
