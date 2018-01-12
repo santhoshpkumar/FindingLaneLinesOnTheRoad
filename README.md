@@ -68,6 +68,12 @@ result = weighted_img(lines, image)
 
 ![result][solidYellowCurve_result]
 
+[solidYellowCurve_gif]: ./test_images_output/solidYellowCurve.gif "Video Output"
+
+Here is the result when the pipeline is applied to each of the frame in the video.
+
+![output][solidYellowCurve_gif]
+
 ---
 
 # 1. Reflection
