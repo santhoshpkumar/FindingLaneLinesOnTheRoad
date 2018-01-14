@@ -170,9 +170,15 @@ Recommend you to use a higher degree polynomial to detect curves.
 ## Suiggested Reading to improve pipeline efficiency
 
 https://docs.opencv.org/3.0-beta/doc/py_tutorials/py_imgproc/py_houghlines/py_houghlines.html
+
 http://www.kerrywong.com/2009/05/07/canny-edge-detection-auto-thresholding/
+
 http://airccj.org/CSCP/vol5/csit53211.pdf
+
 https://chatbotslife.com/self-driving-cars-advanced-computer-vision-with-opencv-finding-lane-lines-488a411b2c3d
+
 https://towardsdatascience.com/carnd-project-1-lane-lines-detection-a-complete-pipeline-6b815037d02c
+
 https://towardsdatascience.com/finding-lane-lines-on-the-road-30cf016a1165
+
 http://tomaszkacmajor.pl/index.php/2017/05/17/lane-lines-detection/
