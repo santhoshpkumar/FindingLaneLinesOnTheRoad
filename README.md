@@ -154,8 +154,8 @@ Parameters looks good, yet you may try one optimal possible set of parameters wh
 max_line_gap that defines the maximum distance between segments that will be connected to a single line.
 
 min_line_len that defines the minimum length of a line that will be created.
-Increasing min_line_lenand max_line_gap(~100 and above) for Hough Transform will make your lines longer and will have less number of breaks.(this will make the solid annotated line longer in the output)Increasing max_line_gap will allow points that are farther away from each other to be connected with a single line.
-threshold increasing(~ 50-60) will rule out the spurious lines.(defines the minimum number of intersections in a given grid cell that are required to choose a line.)
+Increasing min_line_lenand max_line_gap(approx. 100 and above) for Hough Transform will make your lines longer and will have less number of breaks.(this will make the solid annotated line longer in the output)Increasing max_line_gap will allow points that are farther away from each other to be connected with a single line.
+threshold increasing(approx 50-60) will rule out the spurious lines.(defines the minimum number of intersections in a given grid cell that are required to choose a line.)
 
 Decreasing the kernel-size in the Gaussian Filter might also help, as this will remove the noise making the image less blurry.
 
@@ -164,6 +164,8 @@ Consider using rho value of 2 ( rho, distance resolution of the Hough accumulato
 Removing lane shakiness: (averaging with priors)If we simply apply the image pipeline, the video feed has no prior knowledge of the frame before, and thus slight deviations are very obvious in the annotated output video. An easy fix is to average the current frame lines with the previous frame lines, and if one of the lanes isn’t computed properly, to substitute the prior working lane line.That way, in the next frame that a lane is detected, it can again be averaged with the older working line.
 
 HSL will be much more efficient in finding the yellow lane line
+
+Recommend you to use a higher degree polynomial to detect curves.
 
 ## Suiggested Reading to improve pipeline efficiency
 
